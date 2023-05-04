@@ -1,0 +1,51 @@
+﻿<Window x:Class="TypingTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TypingTrainer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="710">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel LastChildFill ="True">
+            <Button Name="startBtn" Width="170" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Background="White" BorderThickness="2,2,2,2" Content="Start" Click="StartBtnClick"></Button>
+            <Label Width="65" HorizontalAlignment="Left" BorderThickness="2,0,2,0" BorderBrush="#FF8B8B8B" Foreground="Black" Margin="5,0,5,0" Content="Level" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Slider Name="sliderBar" Width="270" Height="20" HorizontalAlignment="Left" Maximum="2" TickPlacement="BottomRight" Cursor="Hand"></Slider>
+            <Label Width="95" HorizontalAlignment="Left" BorderThickness="2,0,2,0" BorderBrush="#FF8B8B8B" Foreground="Black" Margin="5,0,5,0" Content="Case Sensitive" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <RadioButton Name="yesBtn" Content="Yes" HorizontalAlignment="Left" Width="35" Height="20" />
+            <RadioButton Name="noBtn" Content="No" HorizontalAlignment="Left" Width="35" Height="20" />
+        </DockPanel>
+        <Border Grid.Row="0" Height="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2,2,2,2"></Border>
+
+        <TextBox Name="inputText" Grid.Row="1" Margin="2,2,2,2"></TextBox>
+        <Border Grid.Row="1" Height="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2,2,2,2"></Border>
+
+        <TextBlock Name="preparedText" Grid.Row="2" Margin="2,2,2,2">
+            So insisted received is occasion advanced honoured. Attacks smiling and may out assured moments man nothing outward. <LineBreak></LineBreak>
+            Thrown any behind afford either the set depend one temper. Instrument melancholy in acceptance collecting frequently be if. <LineBreak></LineBreak>
+            Zealously now pronounce existence add you instantly say offending. Merry their far had widen was. Concerns no in expenses. <LineBreak></LineBreak>
+            Maids table how learn drift but purse stand yet set. Music me house could among oh as their. <LineBreak></LineBreak> 
+            Piqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service.<LineBreak></LineBreak>
+            Sympathize it projection ye insipidity celebrated my pianoforte indulgence. Point his truth put style. <LineBreak></LineBreak>
+            Elegance exercise as laughing proposal mistaken if. We up precaution an it solicitude acceptance invitation.
+        </TextBlock>
+        <Border Grid.Row="2" Height="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2,2,2,2"></Border>
+
+        <DockPanel LastChildFill ="True" Grid.Row="3">
+            <Label Width="65" HorizontalAlignment="Left" BorderThickness="2,0,0,0" BorderBrush="#FF8B8B8B" Foreground="Black" Margin="5,0,5,0" Content="Mistakes:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Name="mistakesText" Width="25" HorizontalAlignment="Left" ></Label>
+            <Label Width="65" HorizontalAlignment="Left" BorderThickness="2,0,0,0" BorderBrush="#FF8B8B8B" Foreground="Black" Margin="5,0,5,0" Content="Time:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Name="secondsText" Width="75" Height="25" HorizontalAlignment="Left" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"></Label>
+            <Label Width="65" HorizontalAlignment="Left" BorderThickness="2,0,0,0" Foreground="Black" Margin="5,0,5,0" Content="Progress:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF8B8B8B"/>
+            <ProgressBar Name="progressBar" Width="300" Height="30" HorizontalAlignment="Left" Maximum="120"></ProgressBar>
+        </DockPanel>
+
+    </Grid>
+</Window>
