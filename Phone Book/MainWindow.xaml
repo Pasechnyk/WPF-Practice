@@ -24,7 +24,7 @@
                FontSize="20" FontStyle="Italic" BorderBrush="Black" BorderThickness="1,1,1,1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >Phone Book</Label>
         
         <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="5" Name="contactListBox" ItemsSource="{Binding Path=Contacts}" SelectedItem="{Binding Path=SelectedContact, Mode=OneWayToSource}"
-                 DisplayMemberPath="ShortInfo" Background="#FF92CEE9" HorizontalContentAlignment="Stretch">
+                 Background="Silver" HorizontalContentAlignment="Stretch">
         </ListBox>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
