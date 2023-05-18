@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+// Task - Create Color Viewer application using bindings.
 
 namespace ColorViewer
 {
@@ -38,54 +37,5 @@ namespace ColorViewer
         {
             viewModel.RemoveColor();
         }
-
-        public class ViewModel
-        {
-            private ObservableCollection<Color> colors = new();
-            public IEnumerable<Color> Colors => colors;
-            public Color SelectedColor { get; set; } = new();
-
-            public ViewModel()
-            {
-                colors.Add(new Color() { A = 112, B = 20, G = 80, R = 17 });
-                colors.Add(new Color() { A = 86, B = 27, G = 172, R = 72 });
-                colors.Add(new Color() { A = 50, B = 73, G = 11, R = 2 });
-            }
-
-            public void AddColor()
-            {
-                
-            }
-            public void RemoveColor()
-            {
-
-            }
-        }
-
-        public class Color : ICloneable
-        {
-            public int A { get; set; }
-            public int R { get; set; }
-            public int G { get; set; }
-            public int B { get; set; }
-
-            public object Clone()
-            {
-                var copy = (Color)this.MemberwiseClone();
-
-                copy.A = this.A;
-                copy.R = this.R;
-                copy.G = this.G;
-                copy.B = this.B;
-
-                return copy;
-            }
-
-            public override string ToString()
-            {
-                return $"{R}{G}{B} - Opacity {A}";
-            }
-        }
-
     }
 }
