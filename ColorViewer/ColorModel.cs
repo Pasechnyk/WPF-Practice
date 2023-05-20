@@ -68,8 +68,6 @@ namespace ColorViewer
                 string color = string.Format("#{0:X2}{1:X2}{2:X2}", R, G, B);
                 return $"{color}";
             }
-
         }
-
     }
 }
