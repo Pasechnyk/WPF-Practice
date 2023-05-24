@@ -1,0 +1,41 @@
+﻿<Window x:Class="FileViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0"  Width="65"  Click="OpenClicked" Margin="-330,0,0,0" Padding="6" >Open</Button>
+        <TextBox Grid.Row="0" Grid.Column="0" Width="325" x:Name="pathTxt" IsReadOnly="True" VerticalContentAlignment="Center" Margin="65,0,0,0" ></TextBox>
+
+        <Label Grid.Row="1" Grid.Column="0" Width="100" Height="25" Margin="30" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14">Files</Label>
+        <ListBox Name="filesListBox" Grid.Row="1" Grid.Column="0" Height="250" Margin="25,60" BorderBrush="Black"
+            ItemsSource="{Binding Path=Files}" SelectedItem="{Binding Path=SelectedFile, Mode=OneWayToSource}">
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Grid.Row="1" Grid.Column="0" Width="100" Height="26" Margin="15" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14">File Info</Label>
+            <Border Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1"></Border>
+            <Label Height="25" Margin="15" FontSize="14" FontStyle="Italic">Name:</Label>
+            <TextBlock Name="nameTxt" Text="{Binding Path=SelectedFile.Name}" Height="18" Margin="15, 0"></TextBlock>
+            <Label Height="25" Margin="15" FontSize="14" FontStyle="Italic">Size:</Label>
+            <TextBlock Name="sizeTxt" Text="{Binding Path=SelectedFile.Size}" Height="18" Margin="15, 0"></TextBlock>
+            <Label Height="25" Margin="15" FontSize="14" FontStyle="Italic">Last changed:</Label>
+            <TextBlock Name="dateText" Text="{Binding Path=SelectedFile.LastChanged}" Height="18" Margin="15, 0"></TextBlock>
+            <Button IsEnabled="{Binding CanNext}" Name="nextBtn" Height="30" Width="100" Margin="20,0,150,0" FontSize="14" FontStyle="Italic" Click="nextBtn_Click">Next</Button>
+            <Button Name="previousBtn" Height="30" Width="100" Margin="20,-30,-130,0" FontSize="14" FontStyle="Italic" Click="previousBtn_Click">Previous</Button>
+        </StackPanel>
+    </Grid>
+</Window>
