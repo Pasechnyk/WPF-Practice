@@ -5,8 +5,137 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StylesShulte"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="455">
+    <Window.Resources>
+        <Style x:Key="generalButton" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="55"></Setter>
+            <Setter Property="Width" Value="60"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="FontWeight" Value="DemiBold" ></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderThickness" Value="2" ></Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8" />
+                </Style>
+            </Style.Resources>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderThickness" Value="5" />
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Background" Value="Purple"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="violetButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="DarkMagenta"></Setter>
+        </Style>
+        <Style x:Key="redButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"></Setter>
+        </Style>
+        <Style x:Key="yellowButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Gold"></Setter>
+        </Style>
+        <Style x:Key="greenButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Green"></Setter>
+        </Style>
+        <Style x:Key="blueButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="SteelBlue"></Setter>
+        </Style>
+        <Style x:Key="whiteButton" BasedOn="{StaticResource generalButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White"></Setter>
+        </Style>
+
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="7" BorderBrush="#FF383838" BorderThickness="2,2,2,2"></Border>
+
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <Button Style="{StaticResource violetButton}">14</Button>
+            <Button Style="{StaticResource whiteButton}">43</Button>
+            <Button Style="{StaticResource blueButton}">29</Button>
+            <Button Style="{StaticResource whiteButton}">4</Button>
+            <Button Style="{StaticResource greenButton}">34</Button>
+            <Button Style="{StaticResource violetButton}">36</Button>
+            <Button Style="{StaticResource greenButton}">11</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" LastChildFill="False">
+            <Button Style="{StaticResource redButton}">13</Button>
+            <Button Style="{StaticResource redButton}">39</Button>
+            <Button Style="{StaticResource redButton}">20</Button>
+            <Button Style="{StaticResource whiteButton}">44</Button>
+            <Button Style="{StaticResource redButton}">8</Button>
+            <Button Style="{StaticResource violetButton}">12</Button>
+            <Button Style="{StaticResource greenButton}">9</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" LastChildFill="False">
+            <Button Style="{StaticResource violetButton}">22</Button>
+            <Button Style="{StaticResource whiteButton}">26</Button>
+            <Button Style="{StaticResource whiteButton}">19</Button>
+            <Button Style="{StaticResource violetButton}">42</Button>
+            <Button Style="{StaticResource violetButton}">21</Button>
+            <Button Style="{StaticResource whiteButton}">2</Button>
+            <Button Style="{StaticResource violetButton}">17</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="3" LastChildFill="False">
+            <Button Style="{StaticResource whiteButton}">10</Button>
+            <Button Style="{StaticResource yellowButton}">48</Button>
+            <Button Style="{StaticResource violetButton}">46</Button>
+            <Button Style="{StaticResource whiteButton}"></Button>
+            <Button Style="{StaticResource yellowButton}">25</Button>
+            <Button Style="{StaticResource blueButton}">16</Button>
+            <Button Style="{StaticResource whiteButton}">28</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="4" LastChildFill="False">
+            <Button Style="{StaticResource greenButton}">45</Button>
+            <Button Style="{StaticResource greenButton}">33</Button>
+            <Button Style="{StaticResource yellowButton}">38</Button>
+            <Button Style="{StaticResource whiteButton}">30</Button>
+            <Button Style="{StaticResource violetButton}">5</Button>
+            <Button Style="{StaticResource yellowButton}">35</Button>
+            <Button Style="{StaticResource violetButton}">7</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="5" LastChildFill="False">
+            <Button Style="{StaticResource blueButton}">24</Button>
+            <Button Style="{StaticResource blueButton}">47</Button>
+            <Button Style="{StaticResource yellowButton}">6</Button>
+            <Button Style="{StaticResource yellowButton}">37</Button>
+            <Button Style="{StaticResource blueButton}">23</Button>
+            <Button Style="{StaticResource violetButton}">18</Button>
+            <Button Style="{StaticResource violetButton}">15</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="6" LastChildFill="False">
+            <Button Style="{StaticResource yellowButton}">27</Button>
+            <Button Style="{StaticResource whiteButton}">40</Button>
+            <Button Style="{StaticResource greenButton}">41</Button>
+            <Button Style="{StaticResource violetButton}">31</Button>
+            <Button Style="{StaticResource redButton}">1</Button>
+            <Button Style="{StaticResource redButton}">3</Button>
+            <Button Style="{StaticResource redButton}">32</Button>
+        </DockPanel>
 
     </Grid>
 </Window>
