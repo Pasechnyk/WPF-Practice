@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "u5UnsGYfbqbaiVaZ0NSIhNscH12opRJCENCK1+hybzRFYKQaZBUP+vaY6jE3ixCJ2EflhDzG6DAP+9AYYRswWw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Настя\\source\\repos\\ColorViewer\\ColorViewer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Настя\\.nuget\\packages\\fody\\6.6.4\\fody.6.6.4.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\propertychanged.fody\\4.1.0\\propertychanged.fody.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
