@@ -5,66 +5,113 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Height ="50" Margin="4" Grid.ColumnSpan="4" TextAlignment="Right" VerticalAlignment="Bottom" FontSize="20"> History</TextBlock>
-            <TextBlock Name ="txtBox" Grid.Row="1" Height ="50" Margin="4" Grid.ColumnSpan="4" TextAlignment="Right" VerticalAlignment="Bottom" FontSize="20">
-            </TextBlock>
-            <Button Grid.Row="2" Grid.Column="0" Margin="4" FontSize="25" Click="CleanClick">CE
-            </Button>
-            <Button Grid.Row="2" Grid.Column="1" Margin="4" FontSize="25" Click="CleanClick">C
-            </Button>
-            <Button Grid.Row="2" Grid.Column="2" Margin="4" FontSize="25">&lt;
-            </Button>
-            <Button Grid.Row="2" Grid.Column="3" Margin="4" FontSize="25" Click="DivClick">/
-            </Button>
-            <Button Name="btn7"  Grid.Row="3" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">7
-            </Button>
-            <Button Name="btn8" Grid.Row="3" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">8
-            </Button>
-            <Button Name="btn9" Grid.Row="3" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">9
-            </Button>
-            <Button Name="btnStar" Grid.Row="3" Grid.Column="3" Margin="4" FontSize="25" Click="MultClick">*
-            </Button>
-            <Button Name="btn4" Grid.Row="4" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">4
-            </Button>
-            <Button Name="btn5" Grid.Row="4" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">5
-            </Button>
-            <Button Name="btn6" Grid.Row="4" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">6
-            </Button>
-            <Button Name="btnMinus" Grid.Row="4" Grid.Column="3" Margin="4" FontSize="25" Click="MinusClick">-
-            </Button>
-            <Button Name="btn1" Grid.Row="5" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">1
-            </Button>
-            <Button Name="btn2" Grid.Row="5" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">2
-            </Button>
-            <Button Name="btn3" Grid.Row="5" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">3
-            </Button>
-            <Button Name="btnPlus" Grid.Row="5" Grid.Column="3" Margin="4" FontSize="25" Click="PlusClick">+
-            </Button>
-            <Button Name="btnDot" Grid.Row="6" Grid.Column="0" Margin="4" FontSize="25" Click="Button_Click">.
-            </Button>
-            <Button Name="btn0" Grid.Row="6" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">0
-            </Button>
-            <Button Name="btnEquals" Grid.Row="6" Grid.Column="2" Margin="4" Grid.ColumnSpan ="2" FontSize="25" Click="EqualsClick">=
-            </Button>
+        Title="MainWindow" Height="450" Width="500">
+    
+    <Window.Resources>
+        <Style x:Key="basicButton" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="Margin" Value="4"></Setter>
+            <Setter Property="BorderBrush" Value="#FF70889F"></Setter>
+            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6" />
+                </Style>
+            </Style.Resources>
+        </Style>
 
-        </Grid>
+        <SolidColorBrush x:Key="gridBackGround" Color="White"></SolidColorBrush>
+        <SolidColorBrush x:Key="buttonMarkerBackGround" Color="#FFB7D9D0"></SolidColorBrush>
+        <SolidColorBrush x:Key="buttonMarkerForeGround" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Key="borderBackGround" Color="#FFD1E4E0"></SolidColorBrush>
+
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource gridBackGround}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="{DynamicResource borderBackGround}" Margin="5" CornerRadius="6"></Border>
+        <Label Width="100" Margin="0, 30, 10, 0" Content=" Calculator" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+
+        <Label Grid.Row="1" Content="Dark Theme:" Margin="5, 18, 0, 10" FontStyle="Normal" FontWeight="Normal"></Label>
+        <ToggleButton Grid.Row="1" Margin="75, 0, 0, 0" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Default ToggleButton Style" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Checked" />
+
+        <Border Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="{DynamicResource borderBackGround}" Margin="5" CornerRadius="6"></Border>
+        <TextBlock Name="historyBox" Grid.Row="0" Grid.Column="1" Height ="50" Margin="0,10,10,0" Grid.ColumnSpan="3" TextAlignment="Right" VerticalAlignment="Bottom" FontSize="20"></TextBlock>
+        <TextBlock Name ="txtBox" Grid.Row="1" Grid.Column="1" Height ="50" Margin="0,0,10,10" Grid.ColumnSpan="3" TextAlignment="Right" VerticalAlignment="Bottom" FontSize="20">
+        </TextBlock>
+
+        <Button Name="btnCleanEntry" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="2" Grid.Column="0" Margin="4" FontSize="25" Click="CleanClick">CE
+        </Button>
+        <Button Name="btnClean" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="2" Grid.Column="1" Margin="4" FontSize="25" Click="CleanClick">C
+        </Button>
+        <Button Grid.Row="2" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Column="2" Margin="4" FontSize="25">&lt;
+        </Button>
+        <Button Name="btnDiv" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="2" Grid.Column="3" Margin="4" FontSize="25" Click="DivClick">/
+        </Button>
+        <Button Name="btn7" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="3" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">7
+        </Button>
+        <Button Name="btn8" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="3" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">8
+        </Button>
+        <Button Name="btn9" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="3" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">9
+        </Button>
+        <Button Name="btnStar" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="3" Grid.Column="3" Margin="4" FontSize="25" Click="MultClick">*
+        </Button>
+        <Button Name="btn4" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="4" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">4
+        </Button>
+        <Button Name="btn5" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="4" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">5
+        </Button>
+        <Button Name="btn6" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="4" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">6
+        </Button>
+        <Button Name="btnMinus" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="4" Grid.Column="3" Margin="4" FontSize="25" Click="MinusClick">-
+        </Button>
+        <Button Name="btn1" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="5" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">1
+        </Button>
+        <Button Name="btn2" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="5" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">2
+        </Button>
+        <Button Name="btn3" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="5" Grid.Column="2" Margin="4" FontSize="25" Click="NumberClick">3
+        </Button>
+        <Button Name="btnPlus" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="5" Grid.Column="3" Margin="4" FontSize="25" Click="PlusClick">+
+        </Button>
+        <Button IsEnabled="False" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Name="btnDot" Grid.Row="6" Grid.Column="0" Margin="4" FontSize="25" Click="NumberClick">.
+        </Button>
+        <Button Name="btn0" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="6" Grid.Column="1" Margin="4" FontSize="25" Click="NumberClick">0
+        </Button>
+        <Button Name="btnEquals" Style="{StaticResource basicButton}" Background="{DynamicResource buttonMarkerBackGround}" Foreground="{DynamicResource buttonMarkerForeGround}"
+                Grid.Row="6" Grid.Column="2" Margin="4" Grid.ColumnSpan ="2" FontSize="25" Click="EqualsClick">=
+        </Button>
+        
     </Grid>
 </Window>

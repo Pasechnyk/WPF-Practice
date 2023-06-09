@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "08touEIb1rZcmZ1+KWtABZg3xlwZQbLYugyoPbMMvcBqf3fOfMfTbX/ssEfLoyClw971yrbTI172KMXQMtn4hQ==",
+  "dgSpecHash": "4bow8IMGflE1jwqjM7UwNXMhjcxmbhpuz9ununaJ/n3WyNG9bODvssFYuRPOeAhOgfEOOawk+57qT9GviLMCJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Настя\\source\\repos\\Calculator\\Calculator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Настя\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\Настя\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
   "logs": []
 }
