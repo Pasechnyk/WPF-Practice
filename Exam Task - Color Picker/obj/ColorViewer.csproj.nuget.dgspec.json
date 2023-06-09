@@ -44,9 +44,21 @@
               "target": "Package",
               "version": "[4.9.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "PropertyChanged.Fody": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Syncfusion.SfColorPalette.WPF": {
+              "target": "Package",
+              "version": "[21.2.9, )"
+            },
+            "System.IO.FileSystem": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

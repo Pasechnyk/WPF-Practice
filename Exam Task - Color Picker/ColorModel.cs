@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
 
-// Model
+// Model of Color class
 
 namespace ColorViewer
 {

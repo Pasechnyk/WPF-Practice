@@ -19,6 +19,9 @@
     <Import Project="$(NuGetPackageRoot)propertychanged.fody\4.1.0\build\PropertyChanged.Fody.props" Condition="Exists('$(NuGetPackageRoot)propertychanged.fody\4.1.0\build\PropertyChanged.Fody.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSyncfusion_Shared_WPF Condition=" '$(PkgSyncfusion_Shared_WPF)' == '' ">C:\Users\Настя\.nuget\packages\syncfusion.shared.wpf\21.2.9</PkgSyncfusion_Shared_WPF>
+    <PkgSyncfusion_SfRadialMenu_WPF Condition=" '$(PkgSyncfusion_SfRadialMenu_WPF)' == '' ">C:\Users\Настя\.nuget\packages\syncfusion.sfradialmenu.wpf\21.2.9</PkgSyncfusion_SfRadialMenu_WPF>
+    <PkgSyncfusion_SfColorPalette_WPF Condition=" '$(PkgSyncfusion_SfColorPalette_WPF)' == '' ">C:\Users\Настя\.nuget\packages\syncfusion.sfcolorpalette.wpf\21.2.9</PkgSyncfusion_SfColorPalette_WPF>
     <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\Настя\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.39</PkgMicrosoft_Xaml_Behaviors_Wpf>
     <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\Настя\.nuget\packages\materialdesignthemes\4.9.0</PkgMaterialDesignThemes>
   </PropertyGroup>

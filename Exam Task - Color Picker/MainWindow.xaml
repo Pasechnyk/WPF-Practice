@@ -13,28 +13,40 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="480" Width="550">
+        Title="MainWindow" Height="480" Width="570">
+    
     <Window.Resources>
-        <Style x:Key="buttons" TargetType="{x:Type Button}">
-            <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="30"></Setter>
+        <Style x:Key="border" TargetType="{x:Type Border}">
+            <Setter Property="Width" Value="65"></Setter>
+            <Setter Property="Height" Value="38"></Setter>
+            <Setter Property="Margin" Value="5,5,0,0"></Setter>
+            <Setter Property="Background" Value="#FFEDEAF0"></Setter>
+            <Setter Property="BorderBrush" Value="#FFAF93E0"></Setter>
+            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+        <Style x:Key="label" TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="20"></Setter>
+            <Setter Property="Height" Value="24"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Margin" Value="10,0,0,0"></Setter>
-            <Setter Property="Background" Value="#FFB9A9BE"></Setter>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="8" />
-                </Style>
-            </Style.Resources>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="FontFamily" Value="Roboto"></Setter>
         </Style>
-        <Style x:Key="image" TargetType="{x:Type Image}">
-            <Setter Property="Width" Value="30"></Setter>
-            <Setter Property="Height" Value="30"></Setter>
-        </Style>
+
+        <SolidColorBrush x:Key="gridBackGround" Color="White"></SolidColorBrush>
+        <SolidColorBrush x:Key="buttonMarkerBackGround" Color="#FFB9A9BE"></SolidColorBrush>
+        <SolidColorBrush x:Key="slidersBackGround" Color="#FF673AB7"></SolidColorBrush>
+        <SolidColorBrush x:Key="headerBackGround" Color="#DDFFFFFF"></SolidColorBrush>
+        <SolidColorBrush x:Key="panelBackGround" Color="#FFDCD8DF"></SolidColorBrush>
+        <SolidColorBrush x:Key="labelForeGround" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Key="listBackGround" Color="#FFE7D9FF"></SolidColorBrush>
+        <SolidColorBrush x:Key="listForeGround" Color="Black"></SolidColorBrush>
+        <SolidColorBrush x:Key="borderBackGround" Color="#FF9F6CDD"></SolidColorBrush>
+
     </Window.Resources>
 
-    <Grid Margin="10,10,10,10">
+    <Grid Name="grid" Background="{DynamicResource gridBackGround}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
@@ -48,69 +60,98 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5.5*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="3">
+        <Border Background="{DynamicResource borderBackGround}" Margin="4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="3">
+        </Border>
+        <Border Margin="6" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="3">
             <Border.Background>
                 <ImageBrush ImageSource="/f.png"/>
             </Border.Background>
-            <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="20" FontWeight="Normal" FontStyle="Italic" Foreground="#DDFFFFFF">Color Picker Application</Label>
+            <Label Margin="5,0,0,0" Foreground="{DynamicResource headerBackGround}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="20" FontWeight="Normal" FontStyle="Italic">Color Picker Application</Label>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" BorderThickness="2,2,2,2" BorderBrush="#FF976ADA" Margin="10,10,10,10" CornerRadius="3">
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Margin="15,15,10,10" CornerRadius="4">
+            <Border.Background>
+                <SolidColorBrush Color="White">
+                </SolidColorBrush>
+            </Border.Background>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" BorderThickness="2,2,2,2" BorderBrush="#FF976ADA" Margin="15,15,10,10" CornerRadius="4">
             <Border.Background>
                 <SolidColorBrush Color="{Binding Path=ColorModel.Color}">
                 </SolidColorBrush>
             </Border.Background>
         </Border>
 
-        <StackPanel Grid.Row="5" Grid.RowSpan="4" Background="#FFDCD8DF" Margin="5">
+        <Border CornerRadius="4" Grid.Row="5" Grid.RowSpan="4" Background="{DynamicResource borderBackGround}" Margin="13, 5, 8, 10"></Border>
+        <StackPanel Grid.Row="5" Grid.RowSpan="4" Background="{DynamicResource panelBackGround}" Margin="15, 7, 10, 12">
             <StackPanel Grid.Row="5" Orientation="Horizontal">
-                <Label Content="A:" FontSize="14" VerticalAlignment="Center"></Label>
-                <Slider Value ="{Binding Path = ColorModel.A}" IsSnapToTickEnabled="True" TickFrequency="1" Name="aSlider" Width="240" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
-                <Border Margin="5,5,0,0" Width="65" Height="38" CornerRadius="5" Background="#FFEDEAF0" BorderBrush="#FFAF93E0" BorderThickness="2,2,2,2">
-                    <Label Name ="aValue" Margin="5" Content="{Binding ElementName=aSlider, Path=Value}" Width="60" Height="30"></Label>
+                <Label Foreground="{DynamicResource labelForeGround}" Content="A:" Style="{StaticResource label}"></Label>
+                <Slider Value ="{Binding Path = ColorModel.A}" Foreground="{DynamicResource slidersBackGround}" IsSnapToTickEnabled="True" TickFrequency="1" Name="aSlider" Width="230" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
+                <Border Style="{StaticResource border}">
+                    <TextBox Name ="aValue" Margin="5" Text="{Binding ElementName=aSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="60" Height="30"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel Grid.Row="6" Orientation="Horizontal">
-                <Label Content="R:" FontSize="14" VerticalAlignment="Center"></Label>
-                <Slider Value ="{Binding Path = ColorModel.R}" IsSnapToTickEnabled="True" TickFrequency="1" Name="rSlider" Width="240" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
-                <Border Margin="5,5,0,0" Width="65" Height="38" CornerRadius="5" Background="#FFEDEAF0" BorderBrush="#FFAF93E0" BorderThickness="2,2,2,2">
-                    <Label Name ="rValue" Margin="5" Content="{Binding ElementName=rSlider, Path=Value}" Width="60" Height="30"></Label>
+                <Label Foreground="{DynamicResource labelForeGround}" Content="R:" Style="{StaticResource label}"></Label>
+                <Slider Value ="{Binding Path = ColorModel.R}" Foreground="{DynamicResource slidersBackGround}" IsSnapToTickEnabled="True" TickFrequency="1" Name="rSlider" Width="230" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
+                <Border Style="{StaticResource border}">
+                    <TextBox Name ="rValue" Margin="5" Text="{Binding ElementName=rSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="60" Height="30"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel Grid.Row="7" Orientation="Horizontal">
-                <Label Content="G:" FontSize="14" VerticalAlignment="Center"></Label>
-                <Slider Value ="{Binding Path = ColorModel.G}" IsSnapToTickEnabled="True" TickFrequency="1" Name="gSlider" Width="240" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
-                <Border Margin="5,5,0,0" Width="65" Height="38" CornerRadius="5" Background="#FFEDEAF0" BorderBrush="#FFAF93E0" BorderThickness="2,2,2,2">
-                    <Label Name ="gValue" Margin="5" Content="{Binding ElementName=gSlider, Path=Value}" Width="60" Height="30"></Label>
+                <Label Foreground="{DynamicResource labelForeGround}" Content="G:" Style="{StaticResource label}"></Label>
+                <Slider Value ="{Binding Path = ColorModel.G}" Foreground="{DynamicResource slidersBackGround}" IsSnapToTickEnabled="True" TickFrequency="1" Name="gSlider" Width="230" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
+                <Border Style="{StaticResource border}">
+                    <TextBox Name ="gValue" Margin="5" Text="{Binding ElementName=gSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="60" Height="30"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel Grid.Row="8" Orientation="Horizontal">
-                <Label Content="B:" FontSize="14" VerticalAlignment="Center"></Label>
-                <Slider Value ="{Binding Path = ColorModel.B}" IsSnapToTickEnabled="True" TickFrequency="1" Name="bSlider" Width="240" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
-                <Border Margin="5,5,0,0" Width="65" Height="38" CornerRadius="5" Background="#FFEDEAF0" BorderBrush="#FFAF93E0" BorderThickness="2,2,2,2">
-                    <Label Name ="bValue" Margin="5" Content="{Binding ElementName=bSlider, Path=Value}" Width="60" Height="30"></Label>
+                <Label Foreground="{DynamicResource labelForeGround}" Content="B:" Style="{StaticResource label}"></Label>
+                <Slider Value ="{Binding Path = ColorModel.B}" Foreground="{DynamicResource slidersBackGround}" IsSnapToTickEnabled="True" TickFrequency="1" Name="bSlider" Width="230" TickPlacement="None" Orientation="Horizontal" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Center"></Slider>
+                <Border Style="{StaticResource border}">
+                    <TextBox Name ="bValue" Margin="5" Text="{Binding ElementName=bSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="60" Height="30"></TextBox>
                 </Border>
             </StackPanel>
         </StackPanel>
 
 
-        <DockPanel Grid.Row="1" Grid.Column="1">
-            <materialDesign:PackIcon Margin="20,0,0,0" VerticalAlignment="Center" Kind="ThemeLightDark" />
-            <Button Name="darkBtn" Width="100" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" Background="#FFB9A9BE" Click="CreateBtnClick">Dark Mode</Button>
-            
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource border}" Height="30"  Margin="0,10,85,0">
+            <Label Width="60" Content="Mode:" Style="{StaticResource label}"></Label>
+        </Border>
+
+        <ToggleButton Grid.Row="1" Grid.Column="1" Margin="70,10,0,0"
+                Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                Content="{materialDesign:PackIcon Kind=Heart, Size=21}"
+                Width="65"
+                ToolTip="Switch to Dark Mode" Checked="ToggleButtonChecked"
+                Unchecked="ToggleButtonChecked">
+            <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                <SolidColorBrush Color="#FFF53EF6" />
+            </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+            <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                <SolidColorBrush Color="#FF9666C2" />
+            </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+        </ToggleButton>
+
+        <Button Grid.Row="2" Grid.Column="1" Background="{DynamicResource buttonMarkerBackGround}" Name="saveBtn"
+                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                materialDesign:ButtonProgressAssist.Value="-1" 
+                Width="120" Height="25" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" 
+                Click="SaveBtnClick">Save Palette</Button>
+
+        <DockPanel Margin="4" Grid.Row="8" Grid.Column="1">
+            <Button Background="{DynamicResource buttonMarkerBackGround}" Name="addBtn" Width="85" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" Click="CreateBtnClick">Add</Button>
+            <Button Background="{DynamicResource buttonMarkerBackGround}" Name="removeBtn" Width="85" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Click="RemoveBtnClick">Remove</Button>
         </DockPanel>
 
-        <DockPanel Grid.Row="8" Grid.Column="1">
-            <Button Name="addBtn" Width="80" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" Background="#FFB9A9BE" Click="CreateBtnClick">Add</Button>
-            <Button Name="removeBtn" Width="80" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0" Background="#FFB9A9BE" Click="RemoveBtnClick">Remove</Button>
-        </DockPanel>
-
+        <Border CornerRadius="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="5" Margin="8" Background="{DynamicResource borderBackGround}"></Border>
         <ListBox Name="colors" ItemsSource="{Binding Path=Colors}" SelectedItem="{Binding Path=ColorModel, Mode=OneWayToSource}"
-                 Grid.Column="2" Grid.Row="2" Grid.RowSpan="6" BorderThickness="2,2,2,2" Margin="10"
-                 BorderBrush="White" Background="#FFE7D9FF">
+                 Grid.Column="2" Grid.Row="3" Grid.RowSpan="5" Margin="10"
+                 Background="{DynamicResource listBackGround}" Foreground="{DynamicResource listForeGround}">
         </ListBox>
 
     </Grid>

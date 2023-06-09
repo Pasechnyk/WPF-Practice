@@ -6,8 +6,10 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System;
 using System.Drawing;
+using Microsoft.Win32;
+using System.IO;
 
-// View Model
+// View Model of Color collection
 
 namespace ColorViewer
 {
@@ -36,6 +38,20 @@ namespace ColorViewer
                 colors.Add(new ColorModel() { A = 38, B = 18, G = 39, R = 59 });
             }
 
+            // Save palette
+            public void SavePalette()
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.DefaultExt = ".txt";
+
+                if (saveFile.ShowDialog() == true)
+                {
+                    File.WriteAllLines(saveFile.FileName, colors.Select(x => $"A={x.A}, R={x.R}, G={x.G}, B={x.B}."));
+                    MessageBox.Show("Successfully saved!");
+                }
+            }
+
+            // Add new color to list
             public void AddColor()
             {
                 if (colors.Select(x => x.Color).Contains(ColorModel.Color))
@@ -47,7 +63,8 @@ namespace ColorViewer
                     colors.Add(ColorModel);
                 }
             }
-
+            
+            // Remove color from list
             public void RemoveColor()
             {
                 colors.Remove(ColorModel);

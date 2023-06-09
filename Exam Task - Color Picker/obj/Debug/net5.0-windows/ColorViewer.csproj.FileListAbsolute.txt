@@ -27,3 +27,8 @@ C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\MaterialDe
 C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\Настя\source\repos\ColorViewer\obj\Debug\net5.0-windows\App.baml
 C:\Users\Настя\source\repos\ColorViewer\obj\Debug\net5.0-windows\ColorViewer.csproj.CopyComplete
+C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Syncfusion.Licensing.dll
+C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Syncfusion.SfColorPalette.WPF.dll
+C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Syncfusion.SfRadialMenu.WPF.dll
+C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Syncfusion.Shared.WPF.dll
+C:\Users\Настя\source\repos\ColorViewer\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
