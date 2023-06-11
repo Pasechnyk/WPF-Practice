@@ -44,7 +44,7 @@ namespace TypingTrainer
             else { progressBar.Value++; }    
         }
 
-        // Start with levels of difficulty (1-4, 5-8, 9-10)
+        // Start with levels of difficulty (1-3, 3-6, 6-8, 8-10)
         private void StartBtnClick(object sender, RoutedEventArgs e)
         {
             timer.Start();
@@ -52,14 +52,18 @@ namespace TypingTrainer
 
             switch (sliderBar.Value)
             {
-                case >= 1 and <= 4:
+                case >= 1 and <= 3:
                     preparedText.Text = "So insisted received is occasion advanced honoured.";
                     break;
-                case >= 5 and <= 8:
+                case > 3 and <= 6:
+                    preparedText.Text = "\nSympathize it projection ye insipidity celebrated my pianoforte indulgence. Point his truth put style." +
+                        "\nInstrument melancholy in acceptance collecting frequently be if.";
+                    break;
+                case > 6 and <= 8:
                     preparedText.Text = "Thrown any behind afford either the set depend one temper. \nInstrument melancholy in acceptance collecting frequently be if." +
                             "\nZealously now pronounce existence add you instantly say offending. Merry their far had widen was. Concerns no in expenses.";
                     break;
-                case >= 9:
+                case > 8 and <= 10:
                     preparedText.Text = "Maids table how learn drift but purse stand yet set. Music me house could among oh as their." +
                             "\nPiqued our sister shy nature almost his wicket. Hand dear so we hour to. He we be hastily offence effects he service." +
                             "\nSympathize it projection ye insipidity celebrated my pianoforte indulgence. Point his truth put style." +
@@ -92,7 +96,7 @@ namespace TypingTrainer
                 timer.Stop();
 
                 MessageBox.Show($"Succesfully finished!" +
-                    $"\nYour time: {DateTime.Now.Second - start.Second}seconds." +
+                    $"\nYour time {DateTime.Now.Second - start.Second}seconds." +
                     $"\nMistakes made: {Mistakes}\n");
             }
 
